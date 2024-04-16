@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: BallPage(),
+      home: const BallPage(),
     );
   }
 }
@@ -51,23 +51,21 @@ class _BallPageState extends State<BallPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Ask Me Anything',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.blue[800],
       ),
-      body: Container(
-        child: Center(
-          child: GestureDetector(
-            child: Image.asset('images/ball${ballNumber}.png'),
-            onTap: () {
-              setState(() {
-                ballNumber = Random().nextInt(4) + 1;
-                //print('I got clicked ${ballNumber}');
-              });
-            },
-          ),
+      body: Center(
+        child: GestureDetector(
+          child: Image.asset('images/ball$ballNumber.png'),
+          onTap: () {
+            setState(() {
+              ballNumber = Random().nextInt(4) + 1;
+              //print('I got clicked ${ballNumber}');
+            });
+          },
         ),
       ),
       backgroundColor: Colors.blue,
